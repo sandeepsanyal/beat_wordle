@@ -3,7 +3,14 @@ import pandas as pd
 from tqdm import tqdm
 import re
 import nltk
-# Download the "words" identifier under "Copra" from the popup
+# Download the "words" identifier under "Copra" from the popup (one time thing)
+# import ssl
+# try:
+#     _create_unverified_https_context = ssl._create_unverified_context
+# except AttributeError:
+#     pass
+# else:
+#     ssl._create_default_https_context = _create_unverified_https_context
 # nltk.download()
 
 word_list = nltk.corpus.words.words()
@@ -15,7 +22,7 @@ word_len_5 = list(set([
 
 # read known hints
 hints = pd.read_csv(
-    r"C:/Users/AAIN0547/OneDrive - Affine Analytics Pvt Ltd/wordle/hints.csv",
+    r"/Users/wrngnfreeman/Library/CloudStorage/OneDrive-Personal/Documents/Work/Personal projects/wordle/hints.csv",
     dtype={"Letter": str, "Omit": str, "True Position": str, "False Position": str}
 )
 hints["Omit"] = [True if str(hints.loc[i, "Omit"]).lower()=="true" else False for i in hints.index]
@@ -94,4 +101,3 @@ for word in tqdm(word_len_5):
 
 # print recommendations
 print(final_word_list)
-
