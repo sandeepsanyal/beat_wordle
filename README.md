@@ -2,13 +2,13 @@
 A simple python code to beat New York Time's wordle puzzle
 
 # How to use this to beat today's wordle
-<ol type="1>
+<ol type="1">
   <li>Start with any 5 letter word. Any word that comes to your mind. Do not worry if none of the letters are matches. See what you get.</li>
   <li>Enter the information about your attempt in hints.csv file.<br>
   <ul>  
-    <li>Enter "TRUE" without quotes against the letter under column "Omit" if the letter is absent (grey as per game's hint)</li>
-    <li>Enter the position of green letters under "True Position" column</li>
-    <li>Enter the position of yellow letters under "False Position" column</li>
+    <li>Enter "TRUE" without quotes against the letter under column "Omit" if the letter is absent (<span style="color:#777A7C">grey</span> as per game's hint)</li>
+    <li>Enter the position of <span style="color:#79A86B">green</span> letters under "True Position" column</li>
+    <li>Enter the position of <span style="color:#C4B465">yellow</span> letters under "False Position" column</li>
     <li>Save the file</li>
   </ul>
   <li>Open the python code</li>
