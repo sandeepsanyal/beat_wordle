@@ -22,7 +22,7 @@ word_len_5 = list(set([
 
 # read known hints
 hints = pd.read_csv(
-    r"/Users/wrngnfreeman/Library/CloudStorage/OneDrive-Personal/Documents/Work/Personal projects/wordle/hints.csv",
+    r"/workspaces/beat_wordle/hints.csv",
     dtype={"Letter": str, "Omit": str, "True Position": str, "False Position": str}
 )
 hints["Omit"] = [True if str(hints.loc[i, "Omit"]).lower()=="true" else False for i in hints.index]
@@ -41,14 +41,14 @@ letter_postions = {}
 for letter in letters_present:
     true_position = hints.loc[hints["Letter"] == letter, r"True Position"].values[0]
     if str(true_position) == "nan":
-        true_position = [np.NaN]
+        true_position = [np.nan]
     else:
         true_position = true_position.split(",")
     false_position = hints.loc[hints["Letter"] == letter, r"False Position"].values[0]
     if str(false_position) == "nan":
-        false_position = [np.NaN]
+        false_position = [np.nan]
     else:
-        false_position = false_position.split(",")
+        false_position = false_position.split("|")
     letter_postions = {
         **letter_postions,
         **{letter: {
